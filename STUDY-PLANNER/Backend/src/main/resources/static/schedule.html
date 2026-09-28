@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generated Timetable & Time-Bar - Study Planner</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="brand">
+                <span class="brand-icon">📚</span>
+                <span>StudyPlanner</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="planner.html">Create Plan</a></li>
+                <li><a href="schedule.html" class="active">Timetable</a></li>
+            </ul>
+            <div class="nav-user" id="navUserContainer">
+                <!-- Injected by script.js -->
+            </div>
+        </div>
+    </nav>
+
+    <!-- SCHEDULE MAIN -->
+    <main class="main-content">
+        <div class="page-header">
+            <div>
+                <h1 class="page-title">Study Timetable & Time-Bar</h1>
+                <p class="page-subtitle">Interactive study schedule with automatic 1-hour sessions and 15-minute breaks.</p>
+            </div>
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                <a href="planner.html" class="btn btn-secondary">✏️ Modify Plan</a>
+                <button class="btn btn-danger" onclick="clearUserSchedule()">🗑️ Reset Schedule</button>
+            </div>
+        </div>
+
+        <!-- PROGRESS SECTION -->
+        <div class="progress-container">
+            <div class="progress-header">
+                <span class="progress-label">Live Study Progress</span>
+                <span class="progress-value" id="schedProgressPercent">0%</span>
+            </div>
+            <div class="progress-bar-bg">
+                <div class="progress-bar-fill" id="schedProgressBarFill" style="width: 0%;"></div>
+            </div>
+            <div class="progress-stats">
+                <div class="stat-item">
+                    <span class="stat-num" id="schedTotalSessions">0</span>
+                    <span class="stat-desc">Total Study Sessions</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-num" id="schedCompletedSessions" style="color: #10b981;">0</span>
+                    <span class="stat-desc">Completed Sessions</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-num" id="schedPendingSessions" style="color: #f59e0b;">0</span>
+                    <span class="stat-desc">Pending Sessions</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- VISUAL TIME-BAR (CONTINUOUS DAY TIMELINE) -->
+        <div class="card" style="margin-bottom: 2rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                <h2 class="card-title">📊 Visual Time-Bar Overview</h2>
+                <div style="display: flex; gap: 0.75rem; font-size: 0.8rem; align-items: center;">
+                    <span style="display: inline-flex; align-items: center; gap: 0.25rem;"><span style="display: inline-block; width: 10px; height: 10px; background: #ef4444; border-radius: 2px;"></span> High</span>
+                    <span style="display: inline-flex; align-items: center; gap: 0.25rem;"><span style="display: inline-block; width: 10px; height: 10px; background: #f59e0b; border-radius: 2px;"></span> Med</span>
+                    <span style="display: inline-flex; align-items: center; gap: 0.25rem;"><span style="display: inline-block; width: 10px; height: 10px; background: #3b82f6; border-radius: 2px;"></span> Low</span>
+                    <span style="display: inline-flex; align-items: center; gap: 0.25rem;"><span style="display: inline-block; width: 10px; height: 10px; background: #10b981; border-radius: 2px;"></span> Break</span>
+                </div>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
+                Proportional time bar representation of your daily study blocks and rest intervals.
+            </p>
+            <div id="timebarSummary" class="timebar-summary">
+                <!-- Injected dynamically by script.js -->
+            </div>
+        </div>
+
+        <!-- TIMELINE SESSION CARDS -->
+        <div>
+            <h2 class="card-title" style="margin-bottom: 1rem;">🗓️ Session-by-Session Schedule</h2>
+            <div id="timelineContainer" class="timeline-list">
+                <div style="text-align: center; padding: 2rem; color: var(--text-muted);">
+                    Loading timetable...
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>&copy; 2026 Study Planner Web Application.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            setupNavbar();
+            initSchedulePage();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+com\studyplanner\model\User.class
+com\studyplanner\repository\SubjectRepository.class
+com\studyplanner\controller\StudyPlannerController.class
+com\studyplanner\model\Subject.class
+com\studyplanner\service\StudyPlannerService.class
+com\studyplanner\dto\LoginRequest.class
+com\studyplanner\repository\UserRepository.class
+com\studyplanner\model\StudySchedule.class
+com\studyplanner\dto\GenerateScheduleRequest$SubjectDto.class
+com\studyplanner\StudyPlannerApplication$1.class
+com\studyplanner\StudyPlannerApplication.class
+com\studyplanner\dto\RegisterRequest.class
+com\studyplanner\dto\GenerateScheduleRequest.class
+com\studyplanner\dto\ProgressResponse.class
+com\studyplanner\repository\ScheduleRepository.class

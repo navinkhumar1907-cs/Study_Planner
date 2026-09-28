@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Study Plan - Study Planner</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="brand">
+                <span class="brand-icon">📚</span>
+                <span>StudyPlanner</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="planner.html" class="active">Create Plan</a></li>
+                <li><a href="schedule.html">Timetable</a></li>
+            </ul>
+            <div class="nav-user" id="navUserContainer">
+                <!-- Injected by script.js -->
+            </div>
+        </div>
+    </nav>
+
+    <!-- PLANNER MAIN -->
+    <main class="main-content">
+        <div class="page-header">
+            <div>
+                <h1 class="page-title">Create Study Plan</h1>
+                <p class="page-subtitle">Configure your study hours, starting time, and subject priorities.</p>
+            </div>
+        </div>
+
+        <div id="plannerAlert"></div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+            <!-- STEP 1: TIME PARAMETERS -->
+            <div class="card">
+                <h2 class="card-title">🕒 1. Study Parameters</h2>
+                <form id="generateScheduleForm" novalidate>
+                    <div class="form-group">
+                        <label class="form-label" for="studyHours">Available Study Hours *</label>
+                        <input type="number" id="studyHours" class="form-control" min="1" max="16" value="4" required>
+                        <div class="form-hint">Total hours you plan to dedicate to study sessions (e.g. 4 hours).</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="startTime">Starting Time *</label>
+                        <input type="time" id="startTime" class="form-control" value="09:00" required>
+                        <div class="form-hint">Time you want your first session to begin (e.g. 09:00 AM).</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Break Duration (Automatic)</label>
+                        <input type="text" class="form-control" value="15 Minutes after every 1-hour session" disabled style="background-color: var(--bg-subtle);">
+                        <div class="form-hint">Standardized rest breaks are automatically scheduled to keep your mind fresh.</div>
+                    </div>
+
+                    <button type="submit" id="generateScheduleBtn" class="btn btn-primary btn-lg" style="width: 100%; margin-top: 1rem;">
+                        ⚡ Generate Schedule
+                    </button>
+                </form>
+            </div>
+
+            <!-- STEP 2: ADD SUBJECT -->
+            <div class="card">
+                <h2 class="card-title">➕ 2. Add New Subject</h2>
+                <div id="subjectAlert"></div>
+                <form id="addSubjectForm">
+                    <div class="form-group">
+                        <label class="form-label" for="subjectNameInput">Subject Name *</label>
+                        <input type="text" id="subjectNameInput" class="form-control" placeholder="e.g. Java, DBMS, Networking, Web Tech" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="subjectPriorityInput">Priority Level *</label>
+                        <select id="subjectPriorityInput" class="form-control" required>
+                            <option value="High">High (Needs maximum attention / difficult)</option>
+                            <option value="Medium" selected>Medium (Standard focus)</option>
+                            <option value="Low">Low (Review / revision)</option>
+                        </select>
+                        <div class="form-hint">High priority subjects will be allocated more study slots.</div>
+                    </div>
+
+                    <button type="submit" class="btn btn-secondary" style="width: 100%; margin-top: 1rem;">
+                        + Add Subject to List
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- SUBJECT LIST / MANAGEMENT -->
+        <div class="card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                <h2 class="card-title">📋 Subject List & Priority Matrix</h2>
+                <span style="font-size: 0.85rem; color: var(--text-muted);">Edit or delete subjects anytime</span>
+            </div>
+            
+            <div id="subjectsTableContainer">
+                <div style="text-align: center; padding: 2rem; color: var(--text-muted);">
+                    Loading subjects...
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>&copy; 2026 Study Planner Web Application.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            setupNavbar();
+            initPlannerPage();
+        });
+    </script>
+</body>
+</html>

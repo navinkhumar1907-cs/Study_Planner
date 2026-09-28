@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Planner - Smart Timetable Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="brand">
+                <span class="brand-icon">📚</span>
+                <span>StudyPlanner</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="planner.html">Create Plan</a></li>
+                <li><a href="schedule.html">Timetable</a></li>
+            </ul>
+            <div class="nav-user" id="navUserContainer">
+                <!-- Injected by script.js -->
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <main class="main-content">
+        <section class="hero">
+            <div class="hero-badge">🚀 Student-Friendly Study Schedule Generator</div>
+            <h1 class="hero-title">Organize Your Study Time & <span>Ace Your Exams</span></h1>
+            <p class="hero-subtitle">
+                Enter your study hours, starting time, and subject priorities.
+                Our automatic scheduling engine builds an optimized timetable with scheduled 15-minute breaks.
+            </p>
+            <div class="hero-actions">
+                <a href="planner.html" class="btn btn-primary btn-lg">⚡ Create Study Plan</a>
+                <a href="dashboard.html" class="btn btn-secondary btn-lg">View Dashboard</a>
+            </div>
+        </section>
+
+        <!-- FEATURES GRID -->
+        <section class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">⏱️</div>
+                <h3>1-Hour Focused Sessions</h3>
+                <p>Standardized 60-minute study blocks maximize concentration without causing academic burnout.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">☕</div>
+                <h3>Automatic 15-Min Breaks</h3>
+                <p>Scheduled refresh intervals after every session help you recharge and retain complex topics.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3>Priority-Based Allocation</h3>
+                <p>High, Medium, and Low priorities ensure difficult and critical subjects get the attention they deserve.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Visual Time-Bar & Timeline</h3>
+                <p>Clean visual bar and timeline views make it effortless to follow your daily study routine.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">✅</div>
+                <h3>Session Tracking & Progress</h3>
+                <p>Mark completed sessions with a single click and track your live completion percentage.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💾</div>
+                <h3>MySQL Persistence</h3>
+                <p>Securely stores subjects, user details, and personalized study schedules in MySQL database.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>&copy; 2026 Study Planner Web Application. Built with Spring Boot, MySQL, HTML, CSS & JavaScript.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', setupNavbar);
+    </script>
+</body>
+</html>

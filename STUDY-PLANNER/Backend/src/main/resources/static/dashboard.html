@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard - Study Planner</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="brand">
+                <span class="brand-icon">📚</span>
+                <span>StudyPlanner</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="dashboard.html" class="active">Dashboard</a></li>
+                <li><a href="planner.html">Create Plan</a></li>
+                <li><a href="schedule.html">Timetable</a></li>
+            </ul>
+            <div class="nav-user" id="navUserContainer">
+                <!-- Injected by script.js -->
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN DASHBOARD CONTENT -->
+    <main class="main-content">
+        <div class="page-header">
+            <div>
+                <h1 class="page-title">Welcome, <span id="welcomeName">Student</span>! 👋</h1>
+                <p class="page-subtitle">Track your study progress, manage subjects, and follow your schedule.</p>
+            </div>
+            <div style="display: flex; gap: 0.75rem;">
+                <a href="planner.html" class="btn btn-primary">⚡ Create Study Plan</a>
+                <a href="schedule.html" class="btn btn-secondary">📅 View Timetable</a>
+            </div>
+        </div>
+
+        <!-- STAT CARDS -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon blue">📚</div>
+                <div class="stat-info">
+                    <h3 id="statTotalSubjects">0</h3>
+                    <p>Total Subjects</p>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon purple">⏱️</div>
+                <div class="stat-info">
+                    <h3 id="statTotalHours">0h</h3>
+                    <p>Planned Study Hours</p>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon green">✅</div>
+                <div class="stat-info">
+                    <h3 id="statCompletedSessions">0</h3>
+                    <p>Completed Sessions</p>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon amber">⏳</div>
+                <div class="stat-info">
+                    <h3 id="statPendingSessions">0</h3>
+                    <p>Pending Sessions</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- PROGRESS SECTION -->
+        <div class="progress-container">
+            <div class="progress-header">
+                <span class="progress-label">Overall Study Completion</span>
+                <span class="progress-value" id="progressPercentageText">0%</span>
+            </div>
+            <div class="progress-bar-bg">
+                <div class="progress-bar-fill" id="progressBarFill" style="width: 0%;"></div>
+            </div>
+            <div class="progress-stats">
+                <div class="stat-item">
+                    <span class="stat-num" id="dashTotalSessions">0</span>
+                    <span class="stat-desc">Total Sessions</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-num" id="dashCompletedSessions" style="color: #10b981;">0</span>
+                    <span class="stat-desc">Completed Sessions</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-num" id="dashPendingSessions" style="color: #f59e0b;">0</span>
+                    <span class="stat-desc">Pending Sessions</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- SUBJECTS SUMMARY CARD -->
+        <div class="card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                <h2 class="card-title">📖 My Enrolled Subjects</h2>
+                <a href="planner.html" class="btn btn-sm btn-secondary">+ Manage Subjects</a>
+            </div>
+            <div id="dashboardSubjectList">
+                <div style="text-align: center; padding: 1.5rem; color: var(--text-muted);">
+                    Loading subjects...
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>&copy; 2026 Study Planner Web Application.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            setupNavbar();
+            initDashboardPage();
+        });
+    </script>
+</body>
+</html>
